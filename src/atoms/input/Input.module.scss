@@ -1,0 +1,32 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  
+  .inputLabel {
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e375a;
+  }
+  
+  .inputField {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  
+    &:focus {
+      border-color: #2373FF;
+      outline: none;
+    }
+  
+    &:disabled {
+      background-color: #f0f0f0;
+      cursor: not-allowed;
+    }
+  }
+  

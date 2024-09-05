@@ -1,0 +1,38 @@
+.button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 2px;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+  
+    &.primary {
+      background-color: #00ABE4;
+  
+      &:not(.disabled):hover {
+        background-color: #2373FF;
+      }
+    }
+  
+    &.secondary {
+      background-color: #61dafb;
+  
+      &:not(.disabled):hover {
+        background-color: #E9F1FA;
+      }
+    }
+  
+    &.disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      color: #FFFFFF;
+    }
+  }
+  
