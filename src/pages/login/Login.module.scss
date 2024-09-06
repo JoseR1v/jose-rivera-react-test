@@ -1,0 +1,59 @@
+@import '../../variables';
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContent {
+    max-width: 70rem;
+    width: 70vw;
+    height: 40rem;
+    display: flex;
+    align-items: center;
+}
+
+.textContainer {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 2rem;
+    h2 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+    background-color: $blue-extralight;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.formContainer {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+}
+
+.inputsContainer {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.errorContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error {
+    color: $red;
+}

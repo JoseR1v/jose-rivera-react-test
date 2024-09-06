@@ -1,0 +1,124 @@
+@import '../../variables';
+
+.container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+}
+
+.anchorProducts {
+  color: $blue;
+}
+
+.titleProducts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+//User Info
+
+.userInfoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.userInfoInputContainer {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+//Product List
+
+.ProductListContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 1rem;
+  }
+  
+  th {
+    border-top: 1px solid $blue-light ;
+    border-bottom: 1px solid $blue-light ;
+    padding: 10px;
+    text-align: left;
+  }
+
+  td {
+    padding: 8px;
+    border-bottom: 1px solid $blue-light;
+    font-size: 12px;
+    height: 45px;
+  }
+  
+  th {
+    background-color: $white;
+  }
+
+  .buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .buttonContent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .buttonContainerTable {
+    width: 6rem;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .edit {
+    background-color: $white;
+    border-radius: 100%;
+    color: $text-color;
+    width: 35px;
+    height: 35px;
+
+    &:hover {
+        color: $white;
+        background-color: $text-color;
+    }
+  }
+
+  .delete {
+    background-color: $white;
+    border-radius: 100%;
+    color: $red;
+
+    &:hover {
+        color: $white;
+        background-color: $red;
+    }
+  }
+
+  //Modal Content
+
+  .modalContent {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2.5rem;
+    gap: 1rem;
+  }

@@ -1,0 +1,39 @@
+@import '../../variables';
+
+.tabContainer {
+    display: flex;
+    gap: 8px; 
+  }
+  
+  .tabButton {
+    border: none;
+    padding: 0 1rem;
+    border-bottom: 4px solid transparent;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+    border-radius: 0;
+    background-color: transparent;
+
+    &:hover {
+        background-color: transparent;
+        color: $text-color;
+    }
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  .tabButtonActive {
+    border-bottom: 2px solid $blue ;
+  }
+  
+  .tabButtonInactive {
+    border-bottom: 4px solid transparent; /* Pestañas inactivas */
+  }
+  
+  .tabContent {
+    margin-top: 20px;
+  }
+  

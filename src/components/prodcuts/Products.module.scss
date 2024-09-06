@@ -1,0 +1,114 @@
+@import '../../variables';
+
+//Estilos card de productos
+
+.card {
+    width: 250px;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cardImage {
+    width: 200px;
+    min-height: 200px;
+    object-fit: contain;
+  }
+  
+  .cardContent {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .cardTitle {
+    font-size: 1rem;
+    padding: 0 0.5rem 0 0.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: $text-color;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+  
+  .cardPrice {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: $blue-dark;
+  }
+
+  .baseCard {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  
+  .cardRating {
+    font-size: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 8px;
+    color: $blue;
+  }
+
+  //Estilos tabla de productos
+
+  .productTable {
+    width: 90%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0 1rem 0;
+  }
+  
+  .cardGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  button {
+    padding: 8px 12px;
+    border: 0;
+    background-color: $blue-extralight;
+    cursor: pointer;
+    border-radius: 100%;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $blue-dark;
+      color: white;
+    }
+  
+    &.activePage {
+      background-color: $blue-dark;
+      color: white;
+      font-weight: bold;
+    }
+  }
+  
+  span {
+    padding: 8px;
+  }
+  
+  

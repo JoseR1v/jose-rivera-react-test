@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.filterSearch {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15%;
+  }
+  
+  .inputWrapper {
+    flex: 1;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid $disabled;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+  
+    &:focus {
+      border-color: $blue-dark;
+      outline: none;
+    }
+  }
+  
+  .selectWrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  

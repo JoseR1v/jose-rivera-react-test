@@ -5,12 +5,14 @@ interface InputProps {
   label?: string;
   type: string;
   placeholder?: string;
-  value: string;
+  value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
+  accept?: string
+  name?: string
 }
 
-const Input: React.FC<InputProps> = ({ label, type, placeholder, value, onChange, disabled = false }) => {
+const Input: React.FC<InputProps> = ({ label, type, placeholder, value, onChange, disabled = false, accept, name }) => {
   return (
     <div className={styles.inputContainer}>
       {label && <label className={styles.inputLabel}>{label}</label>}
@@ -21,6 +23,8 @@ const Input: React.FC<InputProps> = ({ label, type, placeholder, value, onChange
         value={value}
         onChange={onChange}
         disabled={disabled}
+        accept={accept}
+        name={name}
       />
     </div>
   );

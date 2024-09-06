@@ -1,7 +1,9 @@
+@import '../../variables';
+
 .button {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    padding: 20px 30px;
+    padding: 15px 30px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -11,28 +13,28 @@
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: #FFFFFF;
+    color: $white;
   
     &.primary {
-      background-color: #00ABE4;
+      background-color: $blue;
   
       &:not(.disabled):hover {
-        background-color: #2373FF;
+        background-color: $blue-dark;
       }
     }
   
     &.secondary {
-      background-color: #61dafb;
+      background-color: $blue-light;
   
       &:not(.disabled):hover {
-        background-color: #E9F1FA;
+        background-color: $blue-extralight;
       }
     }
   
     &.disabled {
-      background-color: #ccc;
+      background-color: $disabled;
       cursor: not-allowed;
-      color: #FFFFFF;
+      color: $white;
     }
   }
   

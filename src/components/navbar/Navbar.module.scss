@@ -1,0 +1,25 @@
+@import '../../variables';
+
+.container {
+    width: 95%;
+    max-height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+}
+
+.userContainer {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    font-size: 1rem;
+
+    &:hover {
+        color: $blue-dark;
+        background-color: transparent;
+    }
+}

@@ -1,47 +1,43 @@
-import { useState } from 'react';
-import logo from './logo.svg';
-import './App.scss';
-import Button from './atoms/button/Button';
-import Card from './atoms/card/Card';
-import Input from './atoms/input/Input';
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
+import Login from './pages/login/Login';
+import Products from './pages/products/Products';
+import NotFound from './pages/error-404/NotFound';
+import User from './pages/user/User';
+import ProductDetails from './pages/products/ProductDetails';
 
 function App() {
-  const [value, setValue] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+  const isAuthenticated = () => {
+    return !!localStorage.getItem('authToken');
   };
+
+  const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+    return isAuthenticated() ? children : <Navigate to="/login" />;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Card>
-          <h2>Título de la tarjeta</h2>
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <p>Este es el contenido de la tarjeta.</p>
-        </Card>
-        <Button variant='secondary'>
-          Cancel
-        </Button>
-        <Input
-        label="Nombre"
-        type="text"
-        placeholder="Introduce tu nombre"
-        value={value}
-        onChange={handleChange}
-      />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="/products" element={
+          <ProtectedRoute>
+            <Products />
+          </ProtectedRoute>
+        } />
+        <Route path="/products/:id" element={
+          <ProtectedRoute>
+            <ProductDetails />
+          </ProtectedRoute>
+        } />
+        <Route path="/users" element={
+          <ProtectedRoute>
+            <User />
+          </ProtectedRoute>
+        } />
+        <Route path="*" element={<Navigate to="/404" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
