@@ -1,32 +1,43 @@
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
-import CryptoJS from 'crypto-js'; // Importar la librería para desencriptar el token
+import CryptoJS from 'crypto-js';
 import styles from './Navbar.module.scss';
 
-type NavbarProps = {
-    onClick?: () => void;
-    name: string;
+const secretKey = 'mi_clave_secreta';
+
+const decryptData = (encryptedData: string) => {
+  const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
+  return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
 };
 
-const Navbar: React.FC<NavbarProps> = ({ onClick, name }) => {
+const Navbar: React.FC = () => {
   const navigate = useNavigate();
-  const secretKey = 'mi_clave_secreta';
+  let userName = 'Usuario';
 
-  const decryptToken = (encryptedToken: string) => {
-    const bytes = CryptoJS.AES.decrypt(encryptedToken, secretKey);
-    return bytes.toString(CryptoJS.enc.Utf8);
-  };
+  const storedUserData = localStorage.getItem('userData');
+
+  if (storedUserData) {
+    try {
+      const decryptedUserData = decryptData(storedUserData);
+      userName = decryptedUserData.name;
+      
+    } catch (error) {
+      console.error('Error al desencriptar los datos del usuario', error);
+    }
+  }
 
   const handleUserClick = () => {
-    const storedEncryptedToken = localStorage.getItem('authToken');
+    const storedEncryptedToken = localStorage.getItem('userData');
     const validToken = '23021 | Token';
 
     if (storedEncryptedToken) {
-      const decryptedToken = decryptToken(storedEncryptedToken);
+      const decryptedToken = decryptData(storedEncryptedToken);
+      const token = decryptedToken.sessionToken
+      
 
-      if (decryptedToken === validToken) {
-        navigate('/users');
+      if (token === validToken) {
+        navigate('/users'); 
       } else {
         navigate('/login');
       }
@@ -40,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ onClick, name }) => {
       <h1>José Rivera React Test</h1>
       <button onClick={handleUserClick} className={styles.userContainer}>
         <FontAwesomeIcon icon={faUser} />
-        <h3>{name}</h3>
+        <h3>{userName}</h3>
       </button>
     </div>
   );

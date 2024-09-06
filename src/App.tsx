@@ -4,10 +4,30 @@ import Products from './pages/products/Products';
 import NotFound from './pages/error-404/NotFound';
 import User from './pages/user/User';
 import ProductDetails from './pages/products/ProductDetails';
+import CryptoJS from 'crypto-js'; 
+
+const secretKey = 'mi_clave_secreta';
+
+const decryptData = (encryptedData: string) => {
+  const bytes = CryptoJS.AES.decrypt(encryptedData, secretKey);
+  return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+};
 
 function App() {
   const isAuthenticated = () => {
-    return !!localStorage.getItem('authToken');
+    const userData = localStorage.getItem('userData');
+
+    if (userData) {
+      try {
+        const decryptedUserData = decryptData(userData);
+        return decryptedUserData && decryptedUserData.name;
+      } catch (error) {
+        console.error('Error al desencriptar userData', error);
+        return false;
+      }
+    }
+
+    return false;
   };
 
   const ProtectedRoute = ({ children }: { children: JSX.Element }) => {

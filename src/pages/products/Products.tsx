@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux'; // Importa useSelector para obtener el estado global
-import { RootState } from '../../redux/store'; // Asegúrate de importar correctamente el tipo RootState
+import { useSelector } from 'react-redux'; 
+import { RootState } from '../../redux/store'; 
 import styles from './ProductsPage.module.scss';
 import Navbar from '../../components/navbar/Navbar';
 import Filter from '../../components/filter/Filter';
@@ -73,7 +73,7 @@ const Products: React.FC = () => {
 
   return (
     <div>
-      <Navbar name="José Manuel" />
+      <Navbar />
       <div className={styles.contentPage}>
         <Filter
           categories={categoryOptions}
