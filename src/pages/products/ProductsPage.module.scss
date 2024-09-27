@@ -6,3 +6,36 @@
     align-items: center;
     gap: 1rem;
 }
+
+.containerPageDetails {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.productDetailContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+    max-width: 70%;
+    gap: 2rem;
+    align-items: center;
+}
+
+.textProductContainer {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    width: 90%;
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

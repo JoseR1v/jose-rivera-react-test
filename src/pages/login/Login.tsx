@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CryptoJS from 'crypto-js';
 import styles from './Login.module.scss';
@@ -7,6 +7,7 @@ import Input from '../../atoms/input/Input';
 import Button from '../../atoms/button/Button';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import useFetchProducts from '../../hooks/useFetchProducts';
 
 const secretKey = 'mi_clave_secreta'; 
 
@@ -20,7 +21,9 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
-  const [error, setError] = useState('');
+  const [errorPassword, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { loading, error } = useFetchProducts();
   const navigate = useNavigate();
 
   
@@ -76,12 +79,18 @@ const Login: React.FC = () => {
       const encryptedUserData = encryptData(userData);
       localStorage.setItem('userData', encryptedUserData);
       
-      navigate('/products');
+      setIsLoggedIn(true)
     } else {
       
       setError('Correo o contraseña incorrectos');
     }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/products');
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className={styles.container}>
@@ -93,7 +102,7 @@ const Login: React.FC = () => {
           </div>
           <div className={styles.formContainer}>
             <div className={styles.errorContainer}>
-              {error && <p className={styles.error}>{error}</p>}
+              {errorPassword && <p className={styles.error}>{errorPassword}</p>}
               <div className={styles.inputsContainer}>
                 <Input
                   label="Correo"

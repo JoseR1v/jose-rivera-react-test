@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setProducts } from "../redux/slices/productSlice"; // Importa la acción setProducts de Redux
+import { setProducts } from "../redux/slices/productSlice";
 
 interface Product {
   id: number;
@@ -31,11 +31,12 @@ const useFetchProducts = () => {
         const data: Product[] = await response.json();
         const transformedData = data.map(product => ({
           ...product,
-          price: product.price.toString(), // Convertir el precio a string
+          price: product.price.toString(),
         }));
         
-        dispatch(setProducts(transformedData)); // Guardar los productos en Redux
+        dispatch(setProducts(transformedData));
         setLoading(false);
+        console.log(response)
       } catch (error) {
         setError(error instanceof Error ? error.message : 'Unknown error');
         setLoading(false);
