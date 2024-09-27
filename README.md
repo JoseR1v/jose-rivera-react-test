@@ -13,4 +13,4 @@ Runs the app in the development mode.
 User: correo@dominio.com \
 Password: Password123@ 
 
-Producción: https://joserivera-react-test.netlify.app/login
+Producción: https://jose-rivera-react-test.netlify.app/
